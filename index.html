@@ -7,14 +7,12 @@
   <title>Dmitry Shalaev</title>
   <style>
     :root{
-      --bg:#070b10;
-      --panel:#0f1620;
-      --panel2:#111a25;
-      --line:#223043;
-      --text:#eef4fb;
-      --muted:#9aa8b7;
-      --accent:#7fb9ff;
-      --accent2:#9ae6b4;
+      --bg:#05070a;
+      --panel:rgba(12,16,22,.78);
+      --line:#1f2a38;
+      --text:#f2f6fb;
+      --muted:#96a4b3;
+      --accent:#86bfff;
     }
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
@@ -22,9 +20,9 @@
       margin:0;
       font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
       background:
-        radial-gradient(circle at 20% 10%, rgba(127,185,255,.12), transparent 25%),
-        radial-gradient(circle at 80% 0%, rgba(154,230,180,.08), transparent 20%),
-        linear-gradient(180deg, #071019 0%, #070b10 100%);
+        radial-gradient(circle at 20% 10%, rgba(134,191,255,.12), transparent 22%),
+        radial-gradient(circle at 80% 0%, rgba(255,255,255,.05), transparent 18%),
+        linear-gradient(180deg,#071019 0%,#05070a 100%);
       color:var(--text);
     }
     .wrap{max-width:1180px;margin:0 auto;padding:24px}
@@ -32,9 +30,177 @@
       display:flex;
       justify-content:flex-end;
       gap:10px;
-      margin-bottom:18px;
       position:sticky;
       top:0;
+      padding:12px 0;
+      backdrop-filter:blur(12px);
+      z-index:10;
+    }
+    .lang{
+      border:1px solid var(--line);
+      background:rgba(12,16,22,.8);
+      color:var(--text);
+      padding:10px 14px;
+      border-radius:999px;
+      cursor:pointer;
+      font-weight:600;
+    }
+    .lang.active{background:var(--accent);color:#06101a;border-color:transparent}
+    .hero{
+      display:grid;
+      grid-template-columns:360px 1fr;
+      gap:28px;
+      align-items:center;
+      min-height:calc(100vh - 120px);
+    }
+    .photo{
+      width:100%;
+      aspect-ratio:3/4;
+      object-fit:cover;
+      border-radius:28px;
+      border:1px solid var(--line);
+      filter:grayscale(100%);
+      box-shadow:0 20px 70px rgba(0,0,0,.45);
+    }
+    .panel{
+      padding:8px 0;
+      max-width:760px;
+    }
+    .kicker{
+      color:var(--accent);
+      text-transform:uppercase;
+      letter-spacing:.18em;
+      font-size:.78rem;
+      margin:0 0 14px;
+    }
+    h1{
+      margin:0;
+      font-size:clamp(2.4rem,5vw,5rem);
+      line-height:1;
+    }
+    .role{
+      margin:14px 0 18px;
+      font-size:clamp(1.08rem,2vw,1.35rem);
+      color:#d8e5f2;
+      max-width:60ch;
+    }
+    .summary{
+      margin:0;
+      color:var(--muted);
+      max-width:64ch;
+      font-size:1.02rem;
+    }
+    .actions{
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+      margin:22px 0 0;
+    }
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:12px 16px;
+      border-radius:14px;
+      border:1px solid var(--line);
+      background:var(--panel);
+      color:var(--text);
+      text-decoration:none;
+      font-weight:600;
+      min-width:120px;
+    }
+    .btn.primary{
+      background:var(--accent);
+      color:#06101a;
+      border-color:transparent;
+    }
+    .skills{
+      margin-top:22px;
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+    }
+    .tag{
+      padding:9px 12px;
+      border:1px solid var(--line);
+      background:rgba(12,16,22,.72);
+      border-radius:999px;
+      color:#dce7f3;
+      font-size:.95rem;
+    }
+    footer{
+      color:var(--muted);
+      font-size:.95rem;
+      padding:12px 0 18px;
+    }
+    [data-lang]{display:none}
+    [data-lang].active{display:block}
+    @media (max-width:900px){
+      .hero{grid-template-columns:1fr;min-height:auto;padding-top:18px}
+      .top{justify-content:center;position:static}
+      .panel{padding:0}
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="top">
+      <button class="lang active" data-switch="ru">RU</button>
+      <button class="lang" data-switch="en">EN</button>
+    </div>
+
+    <section class="hero">
+      <img class="photo" src="IMG_0028.jpg" alt="Dmitry Shalaev" />
+      <div class="panel">
+        <div data-lang="ru" class="active">
+          <p class="kicker">Quantitative Finance / Algo Trading</p>
+          <h1>Дмитрий Шалаев</h1>
+          <p class="role">Quantitative Research Lead / Head of Algorithmic Trading</p>
+          <p class="summary">20+ лет в IT и quantitative finance. Разрабатываю и внедряю HFT и algorithmic trading стратегии, строю low-latency торговые системы и руковожу командами квант-разработчиков.</p>
+        </div>
+
+        <div data-lang="en">
+          <p class="kicker">Quantitative Finance / Algo Trading</p>
+          <h1>Dmitry Shalaev</h1>
+          <p class="role">Quantitative Research Lead / Head of Algorithmic Trading</p>
+          <p class="summary">20+ years in IT and quantitative finance. I design and deploy HFT and algorithmic trading strategies, build low-latency trading systems, and lead quant development teams.</p>
+        </div>
+
+        <div class="actions">
+          <a class="btn primary" href="mailto:your@email.com">Email</a>
+          <a class="btn" href="https://t.me/yourtelegram" target="_blank" rel="noreferrer">Telegram</a>
+          <a class="btn" href="https://github.com/yourgithub" target="_blank" rel="noreferrer">GitHub</a>
+        </div>
+
+        <div class="skills">
+          <span class="tag">Python</span>
+          <span class="tag">C++</span>
+          <span class="tag">HFT</span>
+          <span class="tag">Low-latency</span>
+          <span class="tag">Market making</span>
+          <span class="tag">Stat arb</span>
+          <span class="tag">Backtesting</span>
+          <span class="tag">Risk management</span>
+        </div>
+      </div>
+    </section>
+
+    <footer>© Dmitry Shalaev</footer>
+  </div>
+
+  <script>
+    const buttons = document.querySelectorAll('[data-switch]');
+    const blocks = document.querySelectorAll('[data-lang]');
+    function setLang(lang){
+      blocks.forEach(el => el.classList.toggle('active', el.getAttribute('data-lang') === lang));
+      buttons.forEach(b => b.classList.toggle('active', b.dataset.switch === lang));
+      document.documentElement.lang = lang;
+    }
+    buttons.forEach(btn => btn.addEventListener('click', () => setLang(btn.dataset.switch)));
+    setLang('ru');
+  </script>
+</body>
+</html>      top:0;
       z-index:20;
       padding:12px 0;
       backdrop-filter:blur(10px);
