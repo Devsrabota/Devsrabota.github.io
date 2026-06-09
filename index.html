@@ -7,12 +7,14 @@
   <title>Dmitry Shalaev</title>
   <style>
     :root{
-      --bg:#05070a;
-      --panel:rgba(12,16,22,.78);
-      --line:#1f2a38;
-      --text:#f2f6fb;
-      --muted:#96a4b3;
-      --accent:#86bfff;
+      --bg:#070b10;
+      --panel:#0f1620;
+      --panel2:#111a25;
+      --line:#223043;
+      --text:#eef4fb;
+      --muted:#9aa8b7;
+      --accent:#7fb9ff;
+      --accent2:#9ae6b4;
     }
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
@@ -20,9 +22,9 @@
       margin:0;
       font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
       background:
-        radial-gradient(circle at 20% 10%, rgba(134,191,255,.12), transparent 22%),
-        radial-gradient(circle at 80% 0%, rgba(255,255,255,.05), transparent 18%),
-        linear-gradient(180deg,#071019 0%,#05070a 100%);
+        radial-gradient(circle at 20% 10%, rgba(127,185,255,.12), transparent 25%),
+        radial-gradient(circle at 80% 0%, rgba(154,230,180,.08), transparent 20%),
+        linear-gradient(180deg, #071019 0%, #070b10 100%);
       color:var(--text);
     }
     .wrap{max-width:1180px;margin:0 auto;padding:24px}
@@ -30,15 +32,16 @@
       display:flex;
       justify-content:flex-end;
       gap:10px;
+      margin-bottom:18px;
       position:sticky;
       top:0;
+      z-index:20;
       padding:12px 0;
-      backdrop-filter:blur(12px);
-      z-index:10;
+      backdrop-filter:blur(10px);
     }
     .lang{
       border:1px solid var(--line);
-      background:rgba(12,16,22,.8);
+      background:rgba(15,22,32,.85);
       color:var(--text);
       padding:10px 14px;
       border-radius:999px;
@@ -48,74 +51,87 @@
     .lang.active{background:var(--accent);color:#06101a;border-color:transparent}
     .hero{
       display:grid;
-      grid-template-columns:360px 1fr;
+      grid-template-columns:340px 1fr;
       gap:28px;
       align-items:center;
-      min-height:calc(100vh - 120px);
+      border:1px solid var(--line);
+      background:linear-gradient(180deg, rgba(17,26,37,.92), rgba(10,15,22,.92));
+      border-radius:30px;
+      padding:28px;
+      box-shadow:0 24px 80px rgba(0,0,0,.35);
     }
     .photo{
       width:100%;
       aspect-ratio:3/4;
+      border-radius:24px;
       object-fit:cover;
-      border-radius:28px;
       border:1px solid var(--line);
       filter:grayscale(100%);
-      box-shadow:0 20px 70px rgba(0,0,0,.45);
-    }
-    .panel{
-      padding:8px 0;
-      max-width:760px;
+      background:#0b1118;
     }
     .kicker{
-      color:var(--accent);
+      color:var(--accent2);
       text-transform:uppercase;
       letter-spacing:.18em;
       font-size:.78rem;
-      margin:0 0 14px;
+      margin:0 0 10px;
     }
     h1{
-      margin:0;
-      font-size:clamp(2.4rem,5vw,5rem);
-      line-height:1;
+      margin:.05em 0 .15em;
+      font-size:clamp(2.1rem,4.5vw,4.4rem);
+      line-height:1.0;
     }
     .role{
-      margin:14px 0 18px;
-      font-size:clamp(1.08rem,2vw,1.35rem);
-      color:#d8e5f2;
-      max-width:60ch;
+      margin:0 0 16px;
+      font-size:clamp(1.05rem,2vw,1.35rem);
+      color:#dce7f3;
     }
     .summary{
       margin:0;
+      max-width:68ch;
       color:var(--muted);
-      max-width:64ch;
-      font-size:1.02rem;
+      font-size:1.03rem;
     }
     .actions{
       display:flex;
       flex-wrap:wrap;
       gap:12px;
-      margin:22px 0 0;
+      margin-top:22px;
     }
     .btn{
       display:inline-flex;
       align-items:center;
-      justify-content:center;
+      gap:8px;
       padding:12px 16px;
       border-radius:14px;
       border:1px solid var(--line);
-      background:var(--panel);
+      background:var(--panel2);
       color:var(--text);
-      text-decoration:none;
       font-weight:600;
-      min-width:120px;
+      text-decoration:none;
     }
     .btn.primary{
       background:var(--accent);
-      color:#06101a;
       border-color:transparent;
+      color:#06101a;
     }
-    .skills{
-      margin-top:22px;
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(12, 1fr);
+      gap:18px;
+      margin-top:18px;
+    }
+    .card{
+      grid-column:span 6;
+      border:1px solid var(--line);
+      background:rgba(15,22,32,.84);
+      border-radius:24px;
+      padding:22px;
+    }
+    .card.full{grid-column:1/-1}
+    h2{margin:0 0 14px;font-size:1.2rem}
+    .muted{color:var(--muted)}
+    .tags{
       display:flex;
       flex-wrap:wrap;
       gap:10px;
@@ -123,22 +139,34 @@
     .tag{
       padding:9px 12px;
       border:1px solid var(--line);
-      background:rgba(12,16,22,.72);
+      background:#0c131c;
       border-radius:999px;
-      color:#dce7f3;
       font-size:.95rem;
+      color:#d8e6f3;
     }
+    .stack{
+      display:grid;
+      gap:14px;
+    }
+    .item{
+      padding:16px;
+      border:1px solid var(--line);
+      border-radius:18px;
+      background:#0d141d;
+    }
+    .item b{display:block;margin-bottom:6px}
     footer{
+      text-align:center;
       color:var(--muted);
+      padding:22px 0 10px;
       font-size:.95rem;
-      padding:12px 0 18px;
     }
     [data-lang]{display:none}
     [data-lang].active{display:block}
     @media (max-width:900px){
-      .hero{grid-template-columns:1fr;min-height:auto;padding-top:18px}
+      .hero{grid-template-columns:1fr}
+      .card{grid-column:1/-1}
       .top{justify-content:center;position:static}
-      .panel{padding:0}
     }
   </style>
 </head>
@@ -150,40 +178,107 @@
     </div>
 
     <section class="hero">
-      <img class="photo" src="IMG_0028.jpg" alt="Dmitry Shalaev" />
-      <div class="panel">
+      <img class="photo" src="IMG_0028.jpg" alt="Dmitry Shalaev photo" />
+      <div>
         <div data-lang="ru" class="active">
           <p class="kicker">Quantitative Finance / Algo Trading</p>
           <h1>Дмитрий Шалаев</h1>
           <p class="role">Quantitative Research Lead / Head of Algorithmic Trading</p>
-          <p class="summary">20+ лет в IT и quantitative finance. Разрабатываю и внедряю HFT и algorithmic trading стратегии, строю low-latency торговые системы и руковожу командами квант-разработчиков.</p>
+          <p class="summary">Профессионал с более чем 20-летним опытом в IT и quantitative finance. Специализируюсь на разработке, валидации и внедрении алгоритмических и высокочастотных торговых стратегий, построении low-latency торговых систем и управлении командами квант-разработчиков.</p>
         </div>
 
         <div data-lang="en">
           <p class="kicker">Quantitative Finance / Algo Trading</p>
           <h1>Dmitry Shalaev</h1>
           <p class="role">Quantitative Research Lead / Head of Algorithmic Trading</p>
-          <p class="summary">20+ years in IT and quantitative finance. I design and deploy HFT and algorithmic trading strategies, build low-latency trading systems, and lead quant development teams.</p>
+          <p class="summary">Quantitative finance and IT professional with 20+ years of experience. I specialize in designing, validating, and deploying algorithmic and high-frequency trading strategies, building low-latency trading systems, and leading quant development teams.</p>
         </div>
 
         <div class="actions">
           <a class="btn primary" href="mailto:your@email.com">Email</a>
-          <a class="btn" href="https://t.me/yourtelegram" target="_blank" rel="noreferrer">Telegram</a>
-          <a class="btn" href="https://github.com/yourgithub" target="_blank" rel="noreferrer">GitHub</a>
-        </div>
-
-        <div class="skills">
-          <span class="tag">Python</span>
-          <span class="tag">C++</span>
-          <span class="tag">HFT</span>
-          <span class="tag">Low-latency</span>
-          <span class="tag">Market making</span>
-          <span class="tag">Stat arb</span>
-          <span class="tag">Backtesting</span>
-          <span class="tag">Risk management</span>
+          <a class="btn" href="#skills">Skills</a>
+          <a class="btn" href="#experience">Experience</a>
         </div>
       </div>
     </section>
+
+    <div class="grid">
+      <section class="card" id="skills">
+        <div data-lang="ru" class="active">
+          <h2>Ключевые компетенции</h2>
+          <div class="tags">
+            <span class="tag">Python</span>
+            <span class="tag">C++</span>
+            <span class="tag">HFT</span>
+            <span class="tag">Low-latency</span>
+            <span class="tag">Market making</span>
+            <span class="tag">Statistical arbitrage</span>
+            <span class="tag">Backtesting</span>
+            <span class="tag">Risk management</span>
+            <span class="tag">Feature engineering</span>
+            <span class="tag">Distributed systems</span>
+          </div>
+        </div>
+        <div data-lang="en">
+          <h2>Core skills</h2>
+          <div class="tags">
+            <span class="tag">Python</span>
+            <span class="tag">C++</span>
+            <span class="tag">HFT</span>
+            <span class="tag">Low-latency</span>
+            <span class="tag">Market making</span>
+            <span class="tag">Statistical arbitrage</span>
+            <span class="tag">Backtesting</span>
+            <span class="tag">Risk management</span>
+            <span class="tag">Feature engineering</span>
+            <span class="tag">Distributed systems</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="card">
+        <div data-lang="ru" class="active">
+          <h2>Образование</h2>
+          <p class="muted">Высшее экономическое образование, 2002, с отличием. Специализация: новейшие информационные технологии в экономике. Фокус: статистика, моделирование рынков, управление финансовыми системами.</p>
+        </div>
+        <div data-lang="en">
+          <h2>Education</h2>
+          <p class="muted">Higher economic education, 2002, with honors. Specialization: modern information technologies in economics. Focus: statistics, market modeling, and financial systems management.</p>
+        </div>
+      </section>
+
+      <section class="card full" id="experience">
+        <div data-lang="ru" class="active">
+          <h2>Опыт и достижения</h2>
+          <div class="stack">
+            <div class="item"><b>IT / Data Analyst — с 2002 года</b><span class="muted">Проектирование, оптимизация и анализ данных для бизнес-систем.</span></div>
+            <div class="item"><b>Research Analyst — Private Investment Fund</b><span class="muted">10 лет анализа фондовых и криптовалютных рынков, разработки гипотез и количественных моделей.</span></div>
+            <div class="item"><b>Co-Founder / Head of Algo Team — Startup</b><span class="muted">Руководство командой 5+ человек, построение процессов research → backtest → production, архитектура торговых систем.</span></div>
+            <div class="item"><b>Ключевые результаты</b><span class="muted">Grid trading стратегия для крипто-фонда, 2 HFT стратегии, 1 стратегия средней частоты и 1 инвестиционная стратегия.</span></div>
+          </div>
+        </div>
+        <div data-lang="en">
+          <h2>Experience and achievements</h2>
+          <div class="stack">
+            <div class="item"><b>IT / Data Analyst — since 2002</b><span class="muted">Data design, optimization, and analysis for business systems.</span></div>
+            <div class="item"><b>Research Analyst — Private Investment Fund</b><span class="muted">10 years of stock and crypto market analysis, hypothesis development, and quantitative modeling.</span></div>
+            <div class="item"><b>Co-Founder / Head of Algo Team — Startup</b><span class="muted">Led a 5+ person team, built research → backtest → production workflows, and trading system architecture.</span></div>
+            <div class="item"><b>Key results</b><span class="muted">Grid trading strategy for a crypto fund, 2 HFT strategies, 1 medium-frequency strategy, and 1 investment strategy.</span></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="card full">
+        <div data-lang="ru" class="active">
+          <h2>Позиционирование</h2>
+          <p class="muted">Фокус: построение и управление командами, разработка HFT и algo стратегий, масштабирование торговых систем, оптимизация latency и data-driven принятие решений.</p>
+        </div>
+        <div data-lang="en">
+          <h2>Positioning</h2>
+          <p class="muted">Focus: building and leading teams, developing HFT and algo strategies, scaling trading systems, optimizing latency, and making data-driven decisions.</p>
+        </div>
+      </section>
+    </div>
 
     <footer>© Dmitry Shalaev</footer>
   </div>
