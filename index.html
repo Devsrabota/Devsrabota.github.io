@@ -7,148 +7,193 @@
   <title>Dmitry Shalaev</title>
   <style>
     :root{
-      --bg:#000;
-      --panel:#070707;
-      --panel2:#0d0d0d;
-      --line:#1a1a1a;
-      --text:#f4f4f4;
-      --muted:#9b9b9b;
+      --bg:#000000;
+      --surface:#070707;
+      --surface2:#0c0c0c;
+      --line:#202020;
+      --text:#f3f3f3;
+      --muted:#a0a0a0;
+      --soft:#cfcfcf;
       --accent:#ffffff;
     }
+
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
     body{
       margin:0;
-      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
-      background:
-        radial-gradient(circle at 20% 10%, rgba(255,255,255,.06), transparent 22%),
-        linear-gradient(180deg,#050505 0%,#000 100%);
-      color:var(--text);
       min-height:100vh;
+      background:
+        radial-gradient(circle at 18% 12%, rgba(255,255,255,.06), transparent 20%),
+        radial-gradient(circle at 85% 8%, rgba(255,255,255,.03), transparent 16%),
+        linear-gradient(180deg,#050505 0%,#000000 100%);
+      color:var(--text);
+      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      font-weight:400;
+      letter-spacing:0.01em;
     }
+
     .wrap{
-      max-width:1180px;
+      max-width:1220px;
       margin:0 auto;
-      padding:16px 24px 12px;
+      padding:22px 28px 16px;
     }
+
     .top{
       display:flex;
       justify-content:flex-end;
       gap:10px;
       position:sticky;
       top:0;
-      padding:8px 0 10px;
-      backdrop-filter:blur(12px);
+      padding:8px 0 12px;
+      backdrop-filter:blur(14px);
       z-index:10;
     }
+
     .lang{
       border:1px solid var(--line);
-      background:rgba(7,7,7,.9);
+      background:rgba(8,8,8,.88);
       color:var(--text);
-      padding:10px 14px;
+      padding:10px 15px;
       border-radius:999px;
       cursor:pointer;
-      font-weight:600;
+      font-weight:500;
+      letter-spacing:.04em;
+      font-size:.95rem;
     }
+
     .lang.active{
       background:var(--accent);
       color:#000;
       border-color:transparent;
     }
+
     .hero{
       display:grid;
-      grid-template-columns:minmax(280px,340px) 1fr;
-      gap:28px;
-      align-items:start;
-      padding-top:6px;
+      grid-template-columns:minmax(290px,360px) 1fr;
+      gap:42px;
+      align-items:center;
+      min-height:calc(100vh - 64px);
     }
+
     .photo{
       width:100%;
       aspect-ratio:3/4;
       object-fit:cover;
-      border-radius:28px;
+      border-radius:30px;
       border:1px solid var(--line);
-      filter:grayscale(100%) contrast(1.06) brightness(.92);
-      box-shadow:0 20px 70px rgba(0,0,0,.7);
+      box-shadow:0 22px 80px rgba(0,0,0,.62);
+      filter:grayscale(100%) contrast(1.04) brightness(.94);
     }
+
     .panel{
-      padding:0;
-      max-width:780px;
-      display:flex;
-      flex-direction:column;
-      justify-content:flex-start;
-      min-height:100%;
+      max-width:760px;
+      padding:6px 0;
     }
+
     .kicker{
+      margin:0 0 14px;
       color:var(--muted);
       text-transform:uppercase;
-      letter-spacing:.18em;
-      font-size:.78rem;
-      margin:0 0 10px;
+      letter-spacing:.26em;
+      font-size:.72rem;
+      font-weight:500;
     }
+
     h1{
       margin:0;
-      font-size:clamp(2.2rem,4.6vw,4.8rem);
-      line-height:1;
+      font-size:clamp(2.8rem,5.6vw,5.8rem);
+      line-height:.95;
+      font-weight:500;
+      letter-spacing:-0.03em;
     }
+
     .role{
-      margin:10px 0 12px;
-      font-size:clamp(1.02rem,1.9vw,1.28rem);
-      color:#dddddd;
-      max-width:60ch;
+      margin:16px 0 18px;
+      font-size:clamp(1.08rem,2vw,1.38rem);
+      color:#e0e0e0;
+      max-width:58ch;
+      line-height:1.55;
+      font-weight:400;
     }
+
     .summary{
       margin:0;
       color:var(--muted);
       max-width:68ch;
-      font-size:1rem;
-      line-height:1.6;
+      font-size:1.01rem;
+      line-height:1.7;
+      font-weight:400;
     }
+
     .skills{
-      margin-top:16px;
+      margin-top:20px;
       display:flex;
       flex-wrap:wrap;
       gap:10px;
+      max-width:68ch;
     }
+
     .tag{
-      padding:8px 11px;
+      padding:8px 12px;
       border:1px solid var(--line);
-      background:var(--panel2);
+      background:rgba(12,12,12,.95);
       border-radius:999px;
-      color:#eaeaea;
+      color:#e6e6e6;
       font-size:.92rem;
+      letter-spacing:.01em;
     }
+
     .contact{
-      margin-top:16px;
-      color:#d8d8d8;
-      line-height:1.55;
+      margin-top:18px;
+      color:#d7d7d7;
+      line-height:1.65;
       font-size:.98rem;
     }
+
     .contact a{
-      color:#f4f4f4;
+      color:var(--text);
       text-decoration:none;
-      border-bottom:1px solid #444;
+      border-bottom:1px solid #4a4a4a;
     }
-    .contact a:hover{border-bottom-color:#fff}
+
+    .contact a:hover{
+      border-bottom-color:#fff;
+    }
+
     footer{
       color:var(--muted);
       font-size:.9rem;
-      padding:10px 0 6px;
+      padding:10px 0 4px;
+      letter-spacing:.02em;
     }
+
     [data-lang]{display:none}
     [data-lang].active{display:block}
+
     @media (max-width:900px){
-      .wrap{padding:14px 16px 10px}
-      .hero{
-        grid-template-columns:1fr;
-        gap:18px;
-        padding-top:8px;
-      }
+      .wrap{padding:16px 18px 10px}
       .top{
         justify-content:center;
         position:static;
+        padding-top:4px;
       }
-      h1{font-size:clamp(2.2rem,10vw,4rem)}
+      .hero{
+        grid-template-columns:1fr;
+        gap:20px;
+        min-height:auto;
+        align-items:start;
+        padding-top:6px;
+      }
+      .photo{
+        max-width:420px;
+        margin:0 auto;
+      }
+      .panel{
+        max-width:100%;
+      }
+      h1{
+        font-size:clamp(2.5rem,12vw,4.4rem);
+      }
     }
   </style>
 </head>
@@ -161,6 +206,7 @@
 
     <section class="hero">
       <img class="photo" src="IMG_0028.jpg" alt="Dmitry Shalaev" />
+
       <div class="panel">
         <div data-lang="en" class="active">
           <p class="kicker">Quantitative Finance / Algo Trading</p>
