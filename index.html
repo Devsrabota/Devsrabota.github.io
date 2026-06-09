@@ -25,14 +25,18 @@
         linear-gradient(180deg,#050505 0%,#000 100%);
       color:var(--text);
     }
-    .wrap{max-width:1180px;margin:0 auto;padding:24px}
+    .wrap{
+      max-width:1180px;
+      margin:0 auto;
+      padding:16px 24px 12px;
+    }
     .top{
       display:flex;
       justify-content:flex-end;
       gap:10px;
       position:sticky;
       top:0;
-      padding:12px 0;
+      padding:8px 0 10px;
       backdrop-filter:blur(12px);
       z-index:10;
     }
@@ -53,9 +57,10 @@
     .hero{
       display:grid;
       grid-template-columns:360px 1fr;
-      gap:28px;
-      align-items:center;
-      min-height:calc(100vh - 48px);
+      gap:24px;
+      align-items:start;
+      min-height:auto;
+      padding-top:6px;
     }
     .photo{
       width:100%;
@@ -67,7 +72,7 @@
       box-shadow:0 20px 70px rgba(0,0,0,.7);
     }
     .panel{
-      padding:8px 0;
+      padding:0;
       max-width:760px;
     }
     .kicker{
@@ -75,16 +80,16 @@
       text-transform:uppercase;
       letter-spacing:.18em;
       font-size:.78rem;
-      margin:0 0 14px;
+      margin:0 0 10px;
     }
     h1{
       margin:0;
-      font-size:clamp(2.4rem,5vw,5rem);
+      font-size:clamp(2.2rem,4.6vw,4.8rem);
       line-height:1;
     }
     .role{
-      margin:14px 0 18px;
-      font-size:clamp(1.08rem,2vw,1.35rem);
+      margin:10px 0 12px;
+      font-size:clamp(1.02rem,1.9vw,1.28rem);
       color:#dddddd;
       max-width:60ch;
     }
@@ -92,12 +97,27 @@
       margin:0;
       color:var(--muted);
       max-width:64ch;
-      font-size:1.02rem;
+      font-size:1rem;
+    }
+    .skills{
+      margin-top:12px;
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+    }
+    .tag{
+      padding:8px 11px;
+      border:1px solid var(--line);
+      background:var(--panel2);
+      border-radius:999px;
+      color:#eaeaea;
+      font-size:.92rem;
     }
     .contact{
-      margin-top:18px;
+      margin-top:12px;
       color:#d8d8d8;
-      line-height:1.7;
+      line-height:1.55;
+      font-size:.98rem;
     }
     .contact a{
       color:#f4f4f4;
@@ -105,35 +125,27 @@
       border-bottom:1px solid #444;
     }
     .contact a:hover{border-bottom-color:#fff}
-    .skills{
-      margin-top:22px;
-      display:flex;
-      flex-wrap:wrap;
-      gap:10px;
-    }
-    .tag{
-      padding:9px 12px;
-      border:1px solid var(--line);
-      background:var(--panel2);
-      border-radius:999px;
-      color:#eaeaea;
-      font-size:.95rem;
-    }
     footer{
       color:var(--muted);
-      font-size:.95rem;
-      padding:12px 0 18px;
+      font-size:.9rem;
+      padding:10px 0 6px;
     }
     [data-lang]{display:none}
     [data-lang].active{display:block}
     @media (max-width:900px){
+      .wrap{padding:14px 16px 10px}
       .hero{
         grid-template-columns:1fr;
+        gap:18px;
         min-height:auto;
-        padding-top:18px;
+        padding-top:8px;
       }
-      .top{justify-content:center;position:static}
+      .top{
+        justify-content:center;
+        position:static;
+      }
       .panel{padding:0}
+      h1{font-size:clamp(2.2rem,10vw,4rem)}
     }
   </style>
 </head>
@@ -151,19 +163,14 @@
           <p class="kicker">Quantitative Finance / Algo Trading</p>
           <h1>Dmitry Shalaev</h1>
           <p class="role">Quantitative Research Lead / Head of Algorithmic Trading</p>
-          <p class="summary"> 20+ years in IT and quantitative finance. I specialize in algorithmic trading, designing and deploying HFT and low-latency strategies, and collaborating with cross-functional teams to deliver trading systems from research to production.</p>
+          <p class="summary">20+ years in IT and quantitative finance. I specialize in algorithmic trading, designing and deploying HFT and low-latency strategies, and collaborating with cross-functional teams to deliver trading systems from research to production.</p>
         </div>
 
         <div data-lang="ru">
           <p class="kicker">Quantitative Finance / Algo Trading</p>
           <h1>Дмитрий Шалаев</h1>
           <p class="role">Quantitative Research Lead / Head of Algorithmic Trading</p>
-          <p class="summary"> Более 20 лет в IT и quantitative finance. Специализируюсь на алго-торговле, разработке и внедрении HFT и low-latency стратегий, а также на работе в командах, которые доводят торговые системы от research до production.</p>
-        </div>
-
-        <div class="contact">
-          <div>Telegram: @Devs_algo</div>
-          <div>Email: <a href="mailto:rabotadevs@gmail.com">rabotadevs@gmail.com</a></div>
+          <p class="summary">Более 20 лет в IT и quantitative finance. Специализируюсь на алго-торговле, разработке и внедрении HFT и low-latency стратегий, а также на работе в командах, которые доводят торговые системы от research до production.</p>
         </div>
 
         <div class="skills">
@@ -176,6 +183,11 @@
           <span class="tag">Stat arb</span>
           <span class="tag">Backtesting</span>
           <span class="tag">Risk management</span>
+        </div>
+
+        <div class="contact">
+          <div>Telegram: @Devs_algo</div>
+          <div>Email: <a href="mailto:rabotadevs@gmail.com">rabotadevs@gmail.com</a></div>
         </div>
       </div>
     </section>
