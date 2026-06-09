@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="ru">
+<html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -7,12 +7,13 @@
   <title>Dmitry Shalaev</title>
   <style>
     :root{
-      --bg:#05070a;
-      --panel:rgba(12,16,22,.78);
-      --line:#1f2a38;
-      --text:#f2f6fb;
-      --muted:#96a4b3;
-      --accent:#86bfff;
+      --bg:#000;
+      --panel:#070707;
+      --panel2:#0d0d0d;
+      --line:#1a1a1a;
+      --text:#f4f4f4;
+      --muted:#9b9b9b;
+      --accent:#ffffff;
     }
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
@@ -20,9 +21,8 @@
       margin:0;
       font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
       background:
-        radial-gradient(circle at 20% 10%, rgba(134,191,255,.12), transparent 22%),
-        radial-gradient(circle at 80% 0%, rgba(255,255,255,.05), transparent 18%),
-        linear-gradient(180deg,#071019 0%,#05070a 100%);
+        radial-gradient(circle at 20% 10%, rgba(255,255,255,.06), transparent 22%),
+        linear-gradient(180deg,#050505 0%,#000 100%);
       color:var(--text);
     }
     .wrap{max-width:1180px;margin:0 auto;padding:24px}
@@ -38,20 +38,24 @@
     }
     .lang{
       border:1px solid var(--line);
-      background:rgba(12,16,22,.8);
+      background:rgba(7,7,7,.9);
       color:var(--text);
       padding:10px 14px;
       border-radius:999px;
       cursor:pointer;
       font-weight:600;
     }
-    .lang.active{background:var(--accent);color:#06101a;border-color:transparent}
+    .lang.active{
+      background:var(--accent);
+      color:#000;
+      border-color:transparent;
+    }
     .hero{
       display:grid;
       grid-template-columns:360px 1fr;
       gap:28px;
       align-items:center;
-      min-height:calc(100vh - 120px);
+      min-height:calc(100vh - 48px);
     }
     .photo{
       width:100%;
@@ -59,15 +63,15 @@
       object-fit:cover;
       border-radius:28px;
       border:1px solid var(--line);
-      filter:grayscale(100%);
-      box-shadow:0 20px 70px rgba(0,0,0,.45);
+      filter:grayscale(100%) contrast(1.06) brightness(.92);
+      box-shadow:0 20px 70px rgba(0,0,0,.7);
     }
     .panel{
       padding:8px 0;
       max-width:760px;
     }
     .kicker{
-      color:var(--accent);
+      color:var(--muted);
       text-transform:uppercase;
       letter-spacing:.18em;
       font-size:.78rem;
@@ -81,7 +85,7 @@
     .role{
       margin:14px 0 18px;
       font-size:clamp(1.08rem,2vw,1.35rem);
-      color:#d8e5f2;
+      color:#dddddd;
       max-width:60ch;
     }
     .summary{
@@ -111,7 +115,7 @@
     }
     .btn.primary{
       background:var(--accent);
-      color:#06101a;
+      color:#000;
       border-color:transparent;
     }
     .skills{
@@ -123,9 +127,9 @@
     .tag{
       padding:9px 12px;
       border:1px solid var(--line);
-      background:rgba(12,16,22,.72);
+      background:var(--panel2);
       border-radius:999px;
-      color:#dce7f3;
+      color:#eaeaea;
       font-size:.95rem;
     }
     footer{
@@ -136,7 +140,11 @@
     [data-lang]{display:none}
     [data-lang].active{display:block}
     @media (max-width:900px){
-      .hero{grid-template-columns:1fr;min-height:auto;padding-top:18px}
+      .hero{
+        grid-template-columns:1fr;
+        min-height:auto;
+        padding-top:18px;
+      }
       .top{justify-content:center;position:static}
       .panel{padding:0}
     }
@@ -145,25 +153,25 @@
 <body>
   <div class="wrap">
     <div class="top">
-      <button class="lang active" data-switch="ru">RU</button>
-      <button class="lang" data-switch="en">EN</button>
+      <button class="lang active" data-switch="en">EN</button>
+      <button class="lang" data-switch="ru">RU</button>
     </div>
 
     <section class="hero">
       <img class="photo" src="IMG_0028.jpg" alt="Dmitry Shalaev" />
       <div class="panel">
-        <div data-lang="ru" class="active">
-          <p class="kicker">Quantitative Finance / Algo Trading</p>
-          <h1>Дмитрий Шалаев</h1>
-          <p class="role">Quantitative Research Lead / Head of Algorithmic Trading</p>
-          <p class="summary">20+ лет в IT и quantitative finance. Разрабатываю и внедряю HFT и algorithmic trading стратегии, строю low-latency торговые системы и руковожу командами квант-разработчиков.</p>
-        </div>
-
-        <div data-lang="en">
+        <div data-lang="en" class="active">
           <p class="kicker">Quantitative Finance / Algo Trading</p>
           <h1>Dmitry Shalaev</h1>
           <p class="role">Quantitative Research Lead / Head of Algorithmic Trading</p>
           <p class="summary">20+ years in IT and quantitative finance. I design and deploy HFT and algorithmic trading strategies, build low-latency trading systems, and lead quant development teams.</p>
+        </div>
+
+        <div data-lang="ru">
+          <p class="kicker">Quantitative Finance / Algo Trading</p>
+          <h1>Дмитрий Шалаев</h1>
+          <p class="role">Quantitative Research Lead / Head of Algorithmic Trading</p>
+          <p class="summary">Более 20 лет в IT и quantitative finance. Разрабатываю и внедряю HFT и algorithmic trading стратегии, строю low-latency торговые системы и руковожу командами квант-разработчиков.</p>
         </div>
 
         <div class="actions">
@@ -197,7 +205,7 @@
       document.documentElement.lang = lang;
     }
     buttons.forEach(btn => btn.addEventListener('click', () => setLang(btn.dataset.switch)));
-    setLang('ru');
+    setLang('en');
   </script>
 </body>
 </html>
