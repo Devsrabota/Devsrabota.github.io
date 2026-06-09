@@ -24,6 +24,7 @@
         radial-gradient(circle at 20% 10%, rgba(255,255,255,.06), transparent 22%),
         linear-gradient(180deg,#050505 0%,#000 100%);
       color:var(--text);
+      min-height:100vh;
     }
     .wrap{
       max-width:1180px;
@@ -56,10 +57,9 @@
     }
     .hero{
       display:grid;
-      grid-template-columns:360px 1fr;
-      gap:24px;
+      grid-template-columns:minmax(280px,340px) 1fr;
+      gap:28px;
       align-items:start;
-      min-height:auto;
       padding-top:6px;
     }
     .photo{
@@ -73,7 +73,11 @@
     }
     .panel{
       padding:0;
-      max-width:760px;
+      max-width:780px;
+      display:flex;
+      flex-direction:column;
+      justify-content:flex-start;
+      min-height:100%;
     }
     .kicker{
       color:var(--muted);
@@ -96,11 +100,12 @@
     .summary{
       margin:0;
       color:var(--muted);
-      max-width:64ch;
+      max-width:68ch;
       font-size:1rem;
+      line-height:1.6;
     }
     .skills{
-      margin-top:12px;
+      margin-top:16px;
       display:flex;
       flex-wrap:wrap;
       gap:10px;
@@ -114,7 +119,7 @@
       font-size:.92rem;
     }
     .contact{
-      margin-top:12px;
+      margin-top:16px;
       color:#d8d8d8;
       line-height:1.55;
       font-size:.98rem;
@@ -137,14 +142,12 @@
       .hero{
         grid-template-columns:1fr;
         gap:18px;
-        min-height:auto;
         padding-top:8px;
       }
       .top{
         justify-content:center;
         position:static;
       }
-      .panel{padding:0}
       h1{font-size:clamp(2.2rem,10vw,4rem)}
     }
   </style>
